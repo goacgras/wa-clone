@@ -15,7 +15,8 @@ function Chat() {
     const [roomName, setRoomName] = useState('');
 
     useEffect(() => {
-        console.log(roomId);
+        // console.log(roomId);
+        // go to database and pull the room name save it to roomName
         if (roomId) {
             db.collection('rooms').doc(roomId).onSnapshot(snapshot => (
                 setRoomName(snapshot.data().name)

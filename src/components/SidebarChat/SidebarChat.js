@@ -24,7 +24,7 @@ function SidebarChat({ addNewChat, id, name }) {
     }
 
     return !addNewChat ? (
-
+        // passing the url by id from db
         <Link to={`/rooms/${id}`}>
             <div className="sidebarChat">
                 <Avatar src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`} />
