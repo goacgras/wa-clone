@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { StateProvider } from './context/StateProvider';
-import reducer, { initialState} from './reducer/auth.js';
+import reducer, { initialState } from './reducer/auth.js';
 
 ReactDOM.render(
   <React.StrictMode>

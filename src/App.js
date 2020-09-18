@@ -8,8 +8,9 @@ import Login from './components/Login/Login';
 import { useStateValue } from './context/StateProvider';
 
 function App() {
-  const {user} = useStateValue()[0];
+  const { user } = useStateValue()[0];
   console.log(user);
+
   return (
     //BEM Naming convention
     <div className="App">
