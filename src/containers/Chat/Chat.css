@@ -4,9 +4,15 @@
     flex-direction: column;
 }
 
+/* @media (max-width: 500px) {
+    .chat {
+        flex: 1;
+    }
+} */
+
 .chat__header {
     padding: 20px;
-    display: flex;
+    display: flex;  
     align-items: center;
     border-bottom: 1px solid lightgray;
 }

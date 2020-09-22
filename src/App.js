@@ -1,11 +1,15 @@
 import React from 'react';
-import './App.css';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { useStateValue } from './context/StateProvider';
 
 import Sidebar from './containers/Sidebar/Sidebar';
 import Chat from './containers/Chat/Chat';
 import Login from './components/Login/Login';
-import { useStateValue } from './context/StateProvider';
+// import SideDrawer from './components/SideDrawer/SideDrawer';
+
+import './App.css';
+
 
 function App() {
   const { user } = useStateValue()[0];
@@ -21,6 +25,7 @@ function App() {
           <div className="app__body">
             <Router>
               <Sidebar />
+              {/* <SideDrawer /> */}
 
               <Switch>
 
