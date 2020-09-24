@@ -3,21 +3,22 @@ import { useParams } from 'react-router-dom';
 import db from '../../firebase';
 import firebase from 'firebase';
 
-import { Avatar, IconButton } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import { SearchOutlined, AttachFile, MoreVert, InsertEmoticon } from '@material-ui/icons'
 import MicIcon from '@material-ui/icons/Mic';
+import DrawerToggle from '../../components/SideDrawer/DrawerToggle/DrawerToggle';
 
 import './Chat.css'
 import { useStateValue } from '../../context/StateProvider';
 
 
-function Chat() {
+function Chat({drawerToggleClick}) {
     const [seed, setSeed] = useState('');
     const [input, setInput] = useState('');
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState('');
     const [messages, setMessages] = useState([]);
-    const { user }= useStateValue()[0];
+    const { user } = useStateValue()[0];
 
     useEffect(() => {
         // console.log(roomId);
@@ -26,7 +27,7 @@ function Chat() {
             db.collection('rooms').doc(roomId).onSnapshot(snapshot => (
                 setRoomName(snapshot.data().name)
             ));
-            
+
             //get messages from database
             db.collection('rooms')
                 .doc(roomId)
@@ -62,7 +63,9 @@ function Chat() {
     return (
         <div className="chat">
             <div className="chat__header">
-                <Avatar src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`} />
+                <DrawerToggle clicked={drawerToggleClick} />
+
+                {/* <Avatar src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`} /> */}
 
                 <div className="chat__headerInfo">
                     <h3>{roomName}</h3>

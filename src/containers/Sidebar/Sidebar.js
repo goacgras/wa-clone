@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import db from '../../firebase';
+import React from 'react'
+// import db from '../../firebase';
 
 import { Avatar, IconButton } from '@material-ui/core';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
@@ -11,23 +11,23 @@ import SidebarChat from '../../components/SidebarChat/SidebarChat';
 import './Sidebar.css';
 import { useStateValue } from '../../context/StateProvider';
 
-function Sidebar() {
-    const [rooms, setRooms] = useState([]);
+function Sidebar({rooms}) {
+    // const [rooms, setRooms] = useState([]);
     const { user } = useStateValue()[0];
 
-    useEffect(() => {
-        const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
-            setRooms(snapshot.docs.map(doc => ({
-                id: doc.id,
-                data: doc.data(),
-            }))
-            )
-        ));
+    // useEffect(() => {
+    //     const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
+    //         setRooms(snapshot.docs.map(doc => ({
+    //             id: doc.id,
+    //             data: doc.data(),
+    //         }))
+    //         )
+    //     ));
 
-        return () => {
-            unsubscribe();
-        }
-    }, []);
+    //     return () => {
+    //         unsubscribe();
+    //     }
+    // }, []);
 
     return (
         <div className="sidebar">
